@@ -27,7 +27,7 @@ except oracledb.DatabaseError as e:
     print(f"Error initializing Oracle Client: {e}")
     exit(1)
 
-schema_name = 'CM_20050609'
+schema_name = 'classicmodels'
 table_name = 'productlines'
 
 # Connect to Oracle Database using python-oracledb in thick mode
@@ -39,7 +39,7 @@ try:
     cursor = connection.cursor()
 
     # Query the required table from the required schema
-    query = f"SELECT * FROM {schema_name}.{table_name}"
+    query = f"SELECT productLine, textDescription FROM {schema_name}.{table_name}"
     cursor.execute(query)
 
     # Fetch column names
